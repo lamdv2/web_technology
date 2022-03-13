@@ -10,7 +10,9 @@
     --color-while: #fff;
     --color-222222: #222222;
     --color-333333: #333333;
+    --color-999999: #999999;
     --text-secondary: hsla(0, 0%, 100%, 0.5);
+    --bgr: #f8f9fa;
 }
 
 .color-while {
@@ -19,6 +21,7 @@
 
 .all {
     color: var(--color-while);
+    background-color: var(--bgr);
 }
 
 input,
@@ -48,6 +51,17 @@ img {
 
 ul li {
     list-style-type: none;
+}
+
+.border {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 0 #b3b2b2;
+}
+
+.border-radius-boxshadow {
+    border-radius: 10px;
+    box-shadow: 0 0 2px 0 #b3b2b2;
 }
 
 .topbar {
@@ -222,7 +236,7 @@ ul li {
 }
 
 .search_web {
-    padding-left: 10px;
+    padding-left: 30px;
     padding-right: 10px;
     width: 350px;
     height: 2.65em;
@@ -346,135 +360,129 @@ ul li {
 
 /* -----------MAIN------------ */
 
-.main {}
+.main {
+    max-width: 1100px;
+    margin: auto;
+    color: var(--color-black);
+}
 
-#home span {
+#phukien span {
     color: #c89979;
 }
 
 
-/* ---------slider----------- */
+/* ------------Product Top-------------- */
 
-.slider {
-    position: relative;
+.product_top {
+    display: flex;
+    margin-top: 46px;
 }
 
-.slider-next,
-.slider-prev {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+.product_top_img {
+    width: 50%;
+    padding-right: 10px;
+}
+
+.product_top_img img {
+    border-radius: 10px;
+}
+
+.product_top_search {
+    width: 50%;
+    padding-left: 10px;
+    background-color: var(--color-while);
+}
+
+.product_top_search_chil {
+    padding: 20px 30px;
+}
+
+.product_top_search_heading {
+    text-align: center;
+}
+
+.product_top_search_all {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.product_top_search_btn {
     width: 50px;
-    height: 50px;
-    border-radius: 100rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #999;
-    background-color: white;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    cursor: pointer;
-    font-size: 20px;
-    z-index: 10;
+    height: 44px;
+    border: none;
+    background-color: #c89979;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 9px;
 }
 
-.slider .fa {
-    display: flex !important;
-}
-
-.slider-next {
-    right: 25px;
-}
-
-.slider-prev {
-    left: 25px;
-}
-
-.slider-dots {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    z-index: 10;
-}
-
-.slider-dots li {
-    margin: 0 10px;
-    width: 15px;
-    height: 15px;
-    border-radius: 100rem;
-    background-color: #999;
-    cursor: pointer;
-    transition: background-color 0.25s linear;
-}
-
-.slider-dots li.active {
-    background-color: white;
-}
-
-.slider-wrapper {
+.product_top_search_all input {
     width: 100%;
-    height: 650px;
-    overflow: hidden;
-    position: relative;
+    height: 44px;
+    font-size: 18px;
+    border: none;
+    padding-left: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.slider-main {
+
+/* ------------Product Phụ Kiện------------ */
+
+.product_phukien {
+    padding-top: 30px;
+}
+
+.product_phukien_heading {
+    padding: 10px 16px;
+    background-color: var(--color-while);
+}
+
+.product_phukien_heading h1 {
+    font-size: 30px;
+}
+
+.product_phukien_all {
     display: flex;
-    position: relative;
-    transition: transform 0.25s linear;
-    height: 100%;
+    flex-wrap: wrap;
+    background-color: var(--color-while);
 }
 
-.slider-item {
-    height: 100%;
-    width: 100%;
-    flex: 1 0 100%;
-    user-select: none;
+.product_phukien_item {
+    flex-basis: 16.66666%;
+    text-align: center;
+    padding: 16px 10px 20px;
 }
 
-.slider-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.product_phukien_icon {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    color: var(--color-black);
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    text-align: center;
 }
 
-
-/* ----------Product Display ---------*/
-
-.product_display {
-    display: flex;
-    margin: 60px auto 0;
-    max-width: 1080px;
+.product_phukien_icon.active {
+    background-color: #fce598;
 }
 
-.width1080 {
-    max-width: 1080px;
-    margin: 0 auto;
+.product_phukien_icon i {
+    line-height: 80px;
+    font-size: 32px;
 }
 
-.prod_display_img {
-    border: 10px solid var(--color-333333);
-    margin: 0 10px;
-    width: 340px;
-}
-
-.prod_display_img img {
-    width: 100%;
-    height: 180px;
+.product_phukien_text {
+    color: var(--color-333333);
+    font-size: 16px;
+    padding-top: 16px;
 }
 
 
 /* ----------- Product Featured --------- */
 
-.product_featured {
-    margin: auto;
-    width: 1080px;
-}
+.product_featured {}
 
 .product_heading {
     margin-top: 80px;
