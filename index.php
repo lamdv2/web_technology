@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assetss/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="https://png.pngtree.com/png-clipart/20190617/original/pngtree-technology-open-icon-ui-png-image_3840639.jpg">
     <title>Dream Team</title>
@@ -94,12 +94,12 @@
                         </div>
                     </div>
 
-                    <div class="header_right">
-                        <div class="cart">
-                            <span class="cart_text">Giỏ Hàng</span>
+                    <div class="header_right" >
+                        <div class="cart" >
+                            <a href="./cart.php" class="cart_text">Giỏ Hàng</a>
 
                             <div class="cart_box">
-                                <div class="logo_cart">0</div>
+                                <div class="logo_cart" ><a href="./cart.php">0</a></div>
                             </div>
                         </div>
 
@@ -192,54 +192,60 @@
                     <h1 class="">Sản Phẩm Nổi Bật</h1>
                     <hr>
                 </div>
-
+            
                 <div class="product_main">
-                <?php 
-                    require("connect.php");
-                    // $username = $_SESSION["username"];
-                    // $username = preg_replace('/\s+/', '', $username);
-                    
-                    $sql = "select * from product where property = 'noibat' ";
-                    $result=mysqli_query($conn , $sql);
-                    
-                    while($row = mysqli_fetch_assoc($result))
-                    {
-                ?>
+                    <?php 
+                        require("connect.php");
+                        // $username = $_SESSION["username"];
+                        // $username = preg_replace('/\s+/', '', $username);
+                        
+                        $sql = "select * from product where property = 'noibat' ";
+                        $result= mysqli_query($conn , $sql);
+                        
+                        while($row = mysqli_fetch_assoc($result))
+                        {
+                    ?>
 
-                    <div class="product_item">
-                        <div class="product_item_img">
-                            <img src="<?php echo './assets/img/' .  $row["imgProduct"]?>" alt="">
-                        </div>
 
-                        <div class="product_item_info">
-                            <div class="product_item_name">
-                                <span><?php echo $row["tenSp"] ?></span>
-                            </div>
-
-                            <div class="product_item_price">
-                                <div class="product_item_price_old">
-                                    <?php echo $row["giaSale"] ?><sup>đ</sup>
+                            <div class="product_item">
+                                <div class="product_item_img">
+                                    <img src="<?php echo './assetss/img/' .  $row["imgProduct"]?>" alt="">
                                 </div>
 
-                                <div class="product_item_price_new">
-                                    <?php echo $row["gia"] ?><sup>đ</sup>
+                                <div class="product_item_info">
+                                    <div class="product_item_name">
+                                        <span><?php echo $row["tenSp"] ?></span>
+                                    </div>
+
+                                    <div class="product_item_price">
+                                        <div class="product_item_price_old">
+                                            <?php echo $row["giaSale"] ?><sup>đ</sup>
+                                        </div>
+
+                                        <div class="product_item_price_new">
+                                            <?php echo $row["gia"] ?><sup>đ</sup>
+                                        </div>
+                                    </div>
+
+                                    <div class="product_item_cart">
+                                        <a href="./insertcart.php?key= <?php echo $row['idProduct']; ?>" class="product_item_cart_btn">
+                                            <span>THÊM VÀO GIỎ HÀNG</span>
+                                        </a>
+                                      
+                                        
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="product_item_cart">
-                                <a href="" class="product_item_cart_btn">
-                                    <span>THÊM VÀO GIỎ HÀNG</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                <?php
-                }
-                    mysqli_close($conn);
-                ?>
+                    
+                        <?php
+                        }
+                            mysqli_close($conn);
+                        ?>
                 </div>
 
+          
+                
                 <div class="product_heading">
                     <hr>
                     <h1 class="">Sản Phẩm Khuyến Mãi</h1>
@@ -261,7 +267,7 @@
 
                     <div class="product_item">
                         <div class="product_item_img">
-                            <img src="<?php echo './assets/img/' .  $row["imgProduct"]?>" alt="">
+                            <img src="<?php echo './assetss/img/' .  $row["imgProduct"]?>" alt="">
                         </div>
 
                         <div class="product_item_info">

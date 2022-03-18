@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/dienthoai.css">
+    <link rel="stylesheet" href="./assetss/css/dienthoai.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="https://png.pngtree.com/png-clipart/20190617/original/pngtree-technology-open-icon-ui-png-image_3840639.jpg">
     <title>Điện thoại</title>
@@ -191,54 +191,59 @@
                     <h1 class="">Sản Phẩm Nổi Bật</h1>
                     <hr>
                 </div>
-
-                <div class="product_main">
                 
-                <?php 
-                    require("connect.php");
-                    // $username = $_SESSION["username"];
-                    // $username = preg_replace('/\s+/', '', $username);
-                    
-                    $sql = "select * from product where loaiSp = 'phone' ";
-                    $result=mysqli_query($conn , $sql);
-                    
-                    while($row = mysqli_fetch_assoc($result))
-                    {
-                ?>
+                <form action="./cart.php">
+                <div class="product_main">
+                    <?php 
+                        require("connect.php");
+                        // $username = $_SESSION["username"];
+                        // $username = preg_replace('/\s+/', '', $username);
+                        
+                        $sql = "select * from product where property = 'noibat' ";
+                        $result=mysqli_query($conn , $sql);
+                        
+                        while($row = mysqli_fetch_assoc($result))
+                        {
+                    ?>
 
-                    <div class="product_item">
-                        <div class="product_item_img">
-                            <img src="<?php echo './assets/img/' .  $row["imgProduct"]?>" alt="">
-                        </div>
 
-                        <div class="product_item_info">
-                            <div class="product_item_name">
-                                <span><?php echo $row["tenSp"] ?></span>
-                            </div>
-
-                            <div class="product_item_price">
-                                <div class="product_item_price_old">
-                                    <?php echo $row["giaSale"] ?><sup>đ</sup>
+                            <div class="product_item">
+                                <div class="product_item_img">
+                                    <img src="<?php echo './assetss/img/' .  $row["imgProduct"]?>" alt="">
                                 </div>
 
-                                <div class="product_item_price_new">
-                                    <?php echo $row["gia"] ?><sup>đ</sup>
+                                <div class="product_item_info">
+                                    <div class="product_item_name">
+                                        <span><?php echo $row["tenSp"] ?></span>
+                                    </div>
+
+                                    <div class="product_item_price">
+                                        <div class="product_item_price_old">
+                                            <?php echo $row["giaSale"] ?><sup>đ</sup>
+                                        </div>
+
+                                        <div class="product_item_price_new">
+                                            <?php echo $row["gia"] ?><sup>đ</sup>
+                                        </div>
+                                    </div>
+
+                                    <div class="product_item_cart">
+                                        <!-- <a href="" class="product_item_cart_btn">
+                                            <span>THÊM VÀO GIỎ HÀNG</span>
+                                        </a> -->
+                                        <input type="submit" class="product_item_cart_btn" value="THÊM VÀO GIỎ HÀNG">
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="product_item_cart">
-                                <a href="" class="product_item_cart_btn">
-                                    <span>THÊM VÀO GIỎ HÀNG</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                <?php
-                }
-                    mysqli_close($conn);
-                ?>
+                    
+                        <?php
+                        }
+                            mysqli_close($conn);
+                        ?>
                 </div>
+
+            </form>
 
             </div>
         </div>
