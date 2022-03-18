@@ -483,6 +483,11 @@ ul li {
     color: #777 !important;
 }
 
+.product_item_cart_btn {
+    background-color: #fff;
+    border: none;
+}
+
 
 /* ---------------Footer-------------- */
 
